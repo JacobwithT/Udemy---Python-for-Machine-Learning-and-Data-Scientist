@@ -82,7 +82,98 @@ print([num**2 for num in x])## this the same thing as the for loop above
 def my_func(parm1):
     print('my name is' + parm1) ## pass in the parameter
 
-print (my_func('my name'))
+print(my_func('my name'))
 
 
-'''this is a doc sting. you can do this for multiple lines. this can serve as the documentation string'''
+'''this is a doc sting. you can do this for multiple lines. this can serve as the documentation string
+you can press command key and hoover to see more information'''
+
+'''MAP AND FILTER FUNCTION'''
+def times2 (var):
+    return var *2
+
+seq=[1,2,3,4,5]
+'''you want to apply the times to seq elements '''
+
+print(list(map(times2,seq)))
+'''lambda expression'''
+t=lambda var:var*2
+print(t(5))
+print(list(map(lambda x:x^2,seq)))
+
+'''filter'''
+print(list(filter(lambda num:num%2 ==0,seq))) #--> this returns only the even number, the lambda expression returns the true or false value
+
+s='hello my name is Sam'
+print( s.split()) #spliting the string
+'''you can also split based on the the text '''
+tweet='Go Sports! #Sports'
+print(tweet.split('#'))
+
+d.keys()#return the keys
+d.values() # return the value
+
+lst=[1,2,3]
+lst.pop()
+print(lst)
+
+#if you want to check something is on the list or not--
+
+print('x' in [1,2,3])
+
+'''tuple unpacking'''
+x=[(1,2),(3,4),(5,6)]
+
+for (a,b) in x:
+    print(a)
+
+
+'''excersice '''
+
+print(7**4)
+print(list(s.split()))
+
+print('the diameter of earth is {} kilometers'.format(12742))
+lst = [1,2,[3,4],[5,[100,200,['hello']],23,11],1,7]
+print(lst[3][1][2])
+
+d = {'k1':[1,2,3,{'tricky':['oh','man','inception',{'target':[1,2,3,'hello']}]}]}
+print(d['k1'][3]['tricky'][3]['target'][3])
+
+def domain_get(var):
+    return list(var.split('@'))[1]
+print(domain_get('jingbo@outlook.com'))
+
+def find_dogs(s):
+    return 'dog' in list(s.split())
+
+print(find_dogs('is dog here'))
+
+
+'''count dogs '''
+def countdog(st):
+    count=0
+    for x in st.lower().split():
+        if x=='dog':
+            count=count+1
+        else: pass
+    return count
+
+print(countdog('dog dog dog'))
+seq = ['soup','dog','salad','cat','great']
+'''filter words that start with s'''
+print(list(filter(lambda word: word[0]=='s',seq)))
+
+def caught_speeding(speed,is_birthday):
+    if is_birthday:
+        speeding=speed-5
+    else:
+        speeding=speed
+    if speeding>80:
+        return 'big ticket'
+    elif speeding>60:
+        return 'smalll ticket'
+    else:
+        return 'No ticket'
+
+print(caught_speeding(81,True))
