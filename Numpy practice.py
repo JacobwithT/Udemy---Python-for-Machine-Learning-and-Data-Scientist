@@ -50,4 +50,88 @@ lst=np.array(['good',2,2,3.3])
 
 print(lst.dtype)
 
+arr=np.arange(0,11)
+print(arr[8])
+print(arr[1:5])
 
+
+'''boardcasting values'''
+arr[0:5]=100
+print(arr)
+
+''' if you slice the array and create a new one, 
+the things you broadcasted in to the array is going to affect the original array as well'''
+slice_of_arr=arr[0:6]
+slice_of_arr[:]=99
+print(arr)
+'''if you dont want this to happen, you need to do this'''
+slice_of_arr2 = arr[0:6].copy()
+print(slice_of_arr2)
+
+'''slicing a two dimensional array'''
+arr_2d = np.array([[5,10,15],[20,25,30],[35,40,45]])
+print(arr_2d)
+
+'''first row and first element in the row'''
+print(arr_2d[0][0])
+
+print (arr_2d[2][1])
+#or you can do this
+print(arr_2d[1,2])
+
+'''slicing the array'''
+print(arr_2d[:2,1:])# slice to 0 and 1 9not including 2 for the row, and including 1 all the way to the end for columns
+
+'''conditional selection'''
+
+arr=np.arange(1,11)
+print(arr)
+bool_arr=arr>5
+'''you can use this boolean to select elements'''
+
+print(arr[arr>5])
+
+print(arr[arr<3])
+
+arr_2d=np.arange(50).reshape(5,10)
+print(arr_2d[1:3,3:5])
+
+'''array with array'''
+
+arr=np.arange(0,11)
+print(arr+arr) # adding
+
+print(arr+100)# every elements add 100
+
+#taking square root
+print(np.sqrt(arr))
+print(np.max(arr))
+
+'numpy excercise'
+print(np.zeros(10))# print 10 zeros
+print(np.ones(10))#pinrt 10 ones
+print(np.ones(10)*5)
+
+print(np.arange(10,51)) #to have 10 to 50 you have to include 51
+
+print(np.arange(10,51,2))
+print(np.arange(0,9).reshape(3,3))
+#identity matrix
+
+print(np.eye(3))
+
+print(np.random.rand(1))
+print(np.random.randn(25))# return 25 numbers in a normal distribution center in 0
+
+print(np.linspace(0.01,1,100).reshape(10,10))
+print(np.arange(0.01,1.01,0.01).reshape(10,10))
+
+'''if you want the output into brackets instead of a single line of array '''
+mat=np.arange(1,26).reshape(5,5)
+print(mat[:3,1:2]) # you have to do this!
+
+
+'''if you want to have the sum of all the value in array'''
+print(np.sum(mat))
+print(np.std(mat)) #--> getting standard deviation
+print(mat.sum(axis=0)) #suming the first axis
