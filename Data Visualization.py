@@ -39,5 +39,74 @@ axes1.set_title('Set Title')
 axes2.set_xlabel('X Label')
 axes2.set_ylabel('Y Label')
 axes2.set_title('Larger Set Title')
-plt.show()
 
+
+
+fig,axes=plt.subplots(nrows=2,ncols=1,figsize=(3,2)) #nice front handle to shortend the thing this is a axis manager
+# the axes is a list object
+
+axes[0].plot(x,y)
+axes[1].plot(y,x)
+
+# you can add the titles and axes names too.
+
+plt.tight_layout()
+
+
+
+# saving the picture:
+fig.savefig('xyz.png',dpi=200)
+
+
+'''adding legend'''
+ax=fig.add_axes([0,0,1,1])
+ax.plot(x,y,label='FIG1')
+ax.plot(y,x, label = 'FIG2')
+
+# add legend
+ax.legend(loc=0) # this is showing the label named in the previous section. and choose the best location
+
+
+'''setting colors'''
+
+fig=plt.figure()
+ax=fig.add_axes([0,0,1,1])
+ax.plot(x,y,color='green',linewidth=20, alpha=0.2,linestyle='-.',marker='o',markersize=20,markerfacecolor='yellow',markeredgewidth=3,markeredgecolor='green') # you can put Hexcode as well. alpha is the transparency
+# marker is the marker for the datapoints
+
+ax.set_xlim([0,1]) #take a list that sets the lowerbond and upperbound of our value
+ax.set_ylim([0,2]) # set the y axis limit
+
+
+
+
+'''practice'''
+
+x = np.arange(0,100)
+y = x*2
+z = x**2
+fig=plt.figure()
+fig=fig.add_axes([0,0,1,1],label='ax')
+fig.plot(x,y)
+
+
+
+pic=plt.figure()
+ax1=pic.add_axes([0,0,1,1])
+ax2=pic.add_axes( [0.2,0.5,.4,.4])
+ax1.plot(z)
+ax1.set_xlim(20,22)
+ax1.set_ylim(30,50)
+ax2.plot(y)
+ax2.set_xlim(20,22)
+ax2.set_ylim(30,50)
+
+
+# two plots
+
+fig,axes=plt.subplots(nrows=1,ncols=2)
+axes[0].plot(x,y,lw=2,color='blue')
+axes[1].plot(y,x, lw=3,color='red',ls='-.')
+
+
+plt.show()
